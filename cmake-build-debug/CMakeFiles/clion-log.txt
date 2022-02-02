@@ -1,0 +1,4 @@
+/home/breno/Downloads/clion-2021.3.3/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/breno/Downloads/clion-2021.3.3/bin/ninja/linux/ninja -G Ninja /home/breno/CLionProjects/COMP_LEX_1
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/breno/CLionProjects/COMP_LEX_1/cmake-build-debug

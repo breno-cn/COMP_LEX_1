@@ -1,0 +1,5 @@
+// This is a single line comment
+// This is another single line comment
+/* This is a single line multi line comment */
+// A final single line comment
+/* Just kiding */ /* Another One */
