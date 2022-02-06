@@ -5,5 +5,5 @@
 #include "State.h"
 
 int State_isFinalState(State state) {
-    return state == AcceptSingleLineComment || state == AcceptMultiLineComment;
+    return state == AcceptSingleLineComment || state == AcceptMultiLineComment || state == AcceptEOF;
 }

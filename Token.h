@@ -6,7 +6,7 @@
 #define COMP_LEX_1_TOKEN_H
 
 typedef enum {
-    SingleLineComment, MultiLineComment
+    SingleLineComment, MultiLineComment, EofToken
 } TokenType;
 
 typedef struct {

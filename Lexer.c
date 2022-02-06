@@ -60,16 +60,20 @@ Token *Lexer_getNextToken(Lexer *lexer) {
     while (!State_isFinalState(lexer->currentState)) {
         switch (lexer->currentState) {
             case Initial:
-                if (Lexer_peek(lexer) != '/') {
-                    // TODO: tratamento de erro
-                }
-                lexer->currentState = ReadFirstSlash;
+                if (Lexer_peek(lexer) == '\0') {
+                    lexer->currentState = AcceptEOF;
+                    break;
+                } else if (Lexer_peek(lexer) != '/')
+                    Lexer_raiseError(lexer, "Expected '/'");
+                else
+                    lexer->currentState = ReadFirstSlash;
                 break;
 
             case ReadFirstSlash:
 //                next = Lexer_peek(lexer);
                 if (!Lexer_readSlash(lexer)) {
                     // TODO: tratamento de erro
+                    Lexer_raiseError(lexer, "Expected '/'");
                 }
 
                 lexer->currentState = ReadNextCommentChar;
@@ -85,6 +89,7 @@ Token *Lexer_getNextToken(Lexer *lexer) {
                     lexer->currentState = ReadUntilNextStar;
                 } else {
                     // TODO: tratamento de erro
+                    Lexer_raiseError(lexer, "Unexpected char");
                 }
 
                 break;
@@ -130,6 +135,9 @@ Token *Lexer_getNextToken(Lexer *lexer) {
 
         case AcceptMultiLineComment:
             return Token_new(MultiLineComment);
+
+        case AcceptEOF:
+            return Token_new(EofToken);
     }
 
     return NULL;
@@ -164,4 +172,10 @@ int Lexer_isWhitespaceNext(Lexer *lexer) {
 void Lexer_readWhitespace(Lexer *lexer) {
     while (Lexer_isWhitespaceNext(lexer))
         Lexer_readNextChar(lexer);
+}
+
+void Lexer_raiseError(Lexer *lexer, char *error) {
+    printf("%s\n", error);
+    printf("at line %d, col %d\n", lexer->line, lexer->col);
+    exit(EXIT_FAILURE);
 }

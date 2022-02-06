@@ -30,5 +30,8 @@ char *Token_toString(Token *token) {
 
         case MultiLineComment:
             return "MULTI_LINE_COMMENT";
+
+        case EofToken:
+            return "EOF";
     }
 }

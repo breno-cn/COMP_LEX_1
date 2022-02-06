@@ -7,7 +7,8 @@
 
 typedef enum {
     Initial, ReadFirstSlash, ReadNextCommentChar, ReadSingleLine, ReadUntilNextStar,
-    ReadSecondStar, ReadSecondSlashMultiLine, AcceptSingleLineComment, AcceptMultiLineComment
+    ReadSecondStar, ReadSecondSlashMultiLine, AcceptSingleLineComment, AcceptMultiLineComment,
+    AcceptEOF
 } State;
 
 int State_isFinalState(State state);

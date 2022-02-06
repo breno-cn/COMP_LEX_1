@@ -36,4 +36,6 @@ int Lexer_readLineBreak(Lexer *lexer);
 int Lexer_isWhitespaceNext(Lexer *lexer);
 void Lexer_readWhitespace(Lexer *lexer);
 
+void Lexer_raiseError(Lexer *lexer, char *error);
+
 #endif //COMP_LEX_1_LEXER_H
