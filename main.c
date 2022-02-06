@@ -10,16 +10,13 @@ int main() {
 
     Token *token;
 
-    do {
+    while (1) {
         token = Lexer_getNextToken(lexer);
         printf("Token: %s\n", Token_toString(token));
-    } while (token->tokenType != EofToken);
 
-//    for (int i = 0; i < 6; i++) {
-//        token = Lexer_getNextToken(lexer);
-//        printf("Token: %s\n", Token_toString(token));
-//        Token_delete(token);
-//    }
+        if (token->tokenType == EofToken)
+            break;
+    }
 
     Lexer_delete(lexer);
 

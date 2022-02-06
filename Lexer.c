@@ -2,6 +2,8 @@
 // Created by breno on 2/1/22.
 //
 
+#include <string.h>
+
 #include "Lexer.h"
 #include "State.h"
 #include "Token.h"
@@ -37,6 +39,12 @@ void Lexer_delete(Lexer *lexer) {
 }
 
 char Lexer_readNextChar(Lexer *lexer) {
+    if (lexer->bufferIndex == BUFFER_SIZE) {
+        memset(lexer->buffer, 0, BUFFER_SIZE * sizeof(char));
+        fread(lexer->buffer, sizeof(char), BUFFER_SIZE, lexer->input);
+        lexer->bufferIndex = 0;
+    }
+
     char currentChar = lexer->buffer[lexer->bufferIndex];
     lexer->bufferIndex++;
 
