@@ -96,6 +96,12 @@ build CMakeFiles/COMP_LEX_1.dir/Token.c.o: C_COMPILER__COMP_LEX_1_Debug /home/br
   OBJECT_DIR = CMakeFiles/COMP_LEX_1.dir
   OBJECT_FILE_DIR = CMakeFiles/COMP_LEX_1.dir
 
+build CMakeFiles/COMP_LEX_1.dir/utils.c.o: C_COMPILER__COMP_LEX_1_Debug /home/breno/CLionProjects/COMP_LEX_1/utils.c || cmake_object_order_depends_target_COMP_LEX_1
+  DEP_FILE = CMakeFiles/COMP_LEX_1.dir/utils.c.o.d
+  FLAGS = -g -std=gnu11
+  OBJECT_DIR = CMakeFiles/COMP_LEX_1.dir
+  OBJECT_FILE_DIR = CMakeFiles/COMP_LEX_1.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target COMP_LEX_1
@@ -104,7 +110,7 @@ build CMakeFiles/COMP_LEX_1.dir/Token.c.o: C_COMPILER__COMP_LEX_1_Debug /home/br
 #############################################
 # Link the executable COMP_LEX_1
 
-build COMP_LEX_1: C_EXECUTABLE_LINKER__COMP_LEX_1_Debug CMakeFiles/COMP_LEX_1.dir/main.c.o CMakeFiles/COMP_LEX_1.dir/Lexer.c.o CMakeFiles/COMP_LEX_1.dir/State.c.o CMakeFiles/COMP_LEX_1.dir/Token.c.o
+build COMP_LEX_1: C_EXECUTABLE_LINKER__COMP_LEX_1_Debug CMakeFiles/COMP_LEX_1.dir/main.c.o CMakeFiles/COMP_LEX_1.dir/Lexer.c.o CMakeFiles/COMP_LEX_1.dir/State.c.o CMakeFiles/COMP_LEX_1.dir/Token.c.o CMakeFiles/COMP_LEX_1.dir/utils.c.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/COMP_LEX_1.dir
   POST_BUILD = :
