@@ -57,6 +57,7 @@ Token *Lexer_getNextToken(Lexer *lexer) {
     lexer->currentState = Initial;
     Lexer_readWhitespace(lexer);
     char next;
+    char currentChar;
     while (!State_isFinalState(lexer->currentState)) {
         switch (lexer->currentState) {
             case Initial:
@@ -111,11 +112,13 @@ Token *Lexer_getNextToken(Lexer *lexer) {
                 break;
 
             case ReadSecondStar:
-                if (!Lexer_readStar(lexer)) {
-                    // TODO: tratamento de erro
-                }
-
-                lexer->currentState = ReadSecondSlashMultiLine;
+                currentChar = Lexer_readNextChar(lexer);
+                if (currentChar == '*')
+                    lexer->currentState = ReadSecondStar;
+                else if (currentChar == '/')
+                    lexer->currentState = AcceptMultiLineComment;
+                else
+                    lexer->currentState = ReadSecondSlashMultiLine;
                 break;
 
             case ReadSecondSlashMultiLine:
